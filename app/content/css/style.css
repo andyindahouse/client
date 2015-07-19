@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'ralewayregular';
+    src: url('./fonts/raleway-regular-webfont.eot');
+    src: url('./fonts/raleway-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./fonts/raleway-regular-webfont.woff2') format('woff2'),
+         url('./fonts/raleway-regular-webfont.woff') format('woff'),
+         url('./fonts/raleway-regular-webfont.ttf') format('truetype'),
+         url('./fonts/raleway-regular-webfont.svg#ralewayregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body, div, button, h1,h2,h3,h4,h5,h6, p,.h1,.h2,.h3,.h4,.h5,.h6{
+    font-family: 'ralewayregular' !important;
+}
+
+input::-webkit-input-placeholder {
+  font-family: 'ralewayregular' !important;
+}
+input:-moz-placeholder {
+  font-family: 'ralewayregular' !important; 
+}
+input:-ms-input-placeholder { 
+  font-family: 'ralewayregular' !important; 
+}
+
+.div-avatar-profile {
+    text-align: center;
+}
+
+.avatar-profile {
+    margin: 25% auto 25% auto;    
+
+}
+.div-info-profile {
+    text-align: center;
+}
+
+
+.logo {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    background-image: url('../img/a_logo.png');
+    width: 30%;
+    height: 20%;
+    margin: 25% auto 25px auto;
+    position: relative;
+    z-index: 2; 
+}
+
+.slogan {
+    font-size: 16px;
+    color: #000000;
+    position: relative;
+    z-index: 2; 
+  }
+
+
+
+/* Empty. Add your own CSS if you like */
+.item-avatar > img:first-child, .item-avatar .item-image, .item-avatar .item-content > img:first-child, .item-avatar .item-content .item-image, .item-avatar-left > img:first-child, .item-avatar-left .item-image, .item-avatar-left .item-content > img:first-child, .item-avatar-left .item-content .item-image {
+    border-radius: 25px;
+    max-width: 50px;
+    max-height: 50px;
+    top: 10px;
+}
+
+.card .item-avatar > img:first-child {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 25px;
+    left: 50px;
+}
+
+.card .item-avatar {
+    padding-left: 110px;
+}
+
+.card .item-avatar:first-child > img:first-child {
+    max-width: 70px;
+    max-height: 70px;
+    border-radius: 35px;
+    left: 15px;
+}
+
+.card .item-avatar:first-child {
+    padding-top: 24px;
+    padding-left: 110px;
+    height: 90px;
+}
+
+

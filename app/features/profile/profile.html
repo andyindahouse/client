@@ -1,0 +1,58 @@
+<ion-view title="Perfil" hide-back-button="true">
+	
+	<ion-nav-buttons side="right"> 
+        <button class="button button-calm button-clear no-animation"
+                ng-click="navigateTo('tab.edit-user')"
+                nav-transition="none"> 
+                Editar 
+        </button>
+  	</ion-nav-buttons>
+	<ion-content class="has-header">
+
+
+	<div class="div-avatar-profile">
+		<img class="avatar-profile" src="../{{user.avatar}}">
+	</div>
+	<div class="div-info-profile"> 
+		<h2>{{user.username}}</h2> 
+		<p> Estado: {{user.state}}</p>
+		<p> Avatar: {{user.avatar}}</p>  
+		<p> picbg: {{user.picbg}}</p>
+	</div>
+
+	
+	<button class="button button-small button-block icon-left ion-clock button-calm"
+			ng-click="logout()">Logout</button>
+
+	<button class="button button-small button-block icon-left ion-person-stalker button-calm"
+			ng-click="showContacts()">Ver contactos</button>
+		<!--
+
+		<div class="list card">
+
+	  <div class="item item-avatar">
+	    <img src="img/users/{{pic}}">
+	    <h2>{{username}}</h2>
+	    <p>{{state}}</p>
+	  </div>	  
+
+	</div>
+
+	<div class="list">
+
+		  <a class="item item-icon-left" href="#">
+		    <i class="icon ion-paper-airplane"></i>
+		    Notificaciones
+		    <span class="badge badge-assertive">0</span>
+		  </a>		  
+		  <a class="item item-icon-left" href="#/tab/contacts">
+		    <i class="icon ion-person-stalker"></i>
+		    Amigos
+		    <span class="badge badge-assertive">{{numFriends}}</span>
+		  </a>
+
+		</div>  -->
+
+
+	</ion-content>
+</ion-view>

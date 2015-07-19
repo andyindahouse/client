@@ -1,0 +1,9 @@
+{
+	"name": "Toollife App",
+	"app_id": "",
+	"documentRoot": "app",
+	"watchPatterns": [
+		"app/**/**/*",
+		"!app/lib/**/*"
+	]
+}

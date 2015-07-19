@@ -1,0 +1,82 @@
+<ion-view title="Iniciar sesión">
+        <ion-content class="has-header">
+
+            <form name="userForm" ng-submit="login(userForm)" novalidate>
+                <div class="list">
+
+                  <label class="item item-input item-stacked-label">
+				    <span class="input-label">Correo electronico</span>
+				    <input id= "nptEmailLogin"
+				    	   type="email" 
+				    	   name="email" 
+				    	   ng-model="user.email" 
+				    	   placeholder="example@domain.com"
+				    	   ng-pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+				    	   required
+				    	   email-registered
+				    	   mongoose-error>
+				   	<p ng-show="userForm.email.$error.required && !userForm.email.$pristine" 
+				  	 class="">El correo eléctronico no puede estar vacio.</p>
+				  	<p ng-show="userForm.email.$error.pattern && !userForm.email.$pristine" 
+				  	 class="">El correo eléctronico no es válido.</p>
+				  	<p ng-show="userForm.email.$error.notexists && !userForm.email.$pristine"
+				  	 class="">Este correo eléctronico no está registrado.</p>
+				  	<p ng-show="userForm.email.$error.mongoose">
+		               {{ errors.email }}</p>
+				  </label>		           
+
+				  <label class="item item-input item-stacked-label">
+				    <span class="input-label">Contraseña</span>
+				    <input id= "nptPasswordLogin"
+				    	   type="password" 
+				    	   name="password" 
+				    	   ng-model="user.password" 
+				    	   placeholder="*********"
+				    	   required
+				    	   ng-minlength="6"
+				    	   ng-maxlength="50"
+				    	   mongoose-error>
+				    <p ng-show="userForm.password.$error.required && !userForm.password.$pristine" 
+				  	 class="">La contraseña no puede estar vacia.</p>
+				  	<p ng-show="userForm.password.$error.minlength && !userForm.password.$pristine" 
+				  	 class="">La contraseña es demasiado corta.</p>
+				  	<p ng-show="userForm.password.$error.maxlength && !userForm.password.$pristine" 
+				  	 class="">La contraseña es demasiado larga.</p>
+		            <p ng-show="userForm.password.$error.mongoose">
+		                {{ errors.password }}
+		            </p>
+		            
+				  </label>  
+  				  <tt>userForm.email.$valid = 
+  				  {{userForm.email.$valid}}</tt><br>
+  				<tt>userForm.email.$error = 
+  				{{userForm.email.$error}}</tt><br><br>
+
+  				  <tt>userForm.password.$valid = 
+  				  {{userForm.password.$valid}}</tt><br>
+  				<tt>userForm.password.$error = 
+  				{{userForm.password.$error}}</tt><br>
+
+
+
+  				<tt>userForm.$valid = 
+  				{{userForm.$valid}}</tt><br>
+  				<tt>userForm.$error.required = {{!!userForm.$error.required}}</tt><br>
+
+				 	<p ng-show="errorsubmit"
+		  	 		class="">Ups, estamos teniendo problemas técnicos, por favor intentalo de nuevo más tarde. Lo sentimos :( 
+		  	 		</p>
+                  
+                </div>
+
+                <button id="btnEntrarLogin"
+                		type="submit" 
+		  		  		class="button button-block button-calm" 
+		  		  		ng-disabled="userForm.$invalid">
+		  		  		Entrar</button>     
+            </form>
+            <hr>          
+            <!--
+            <p>Magic -> click -><a ng-click="login({email: 'andyh_007@hotmail.com', password: 'password'})" >backdoor</a></p>                 -->
+        </ion-content>
+</ion-view>
