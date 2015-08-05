@@ -2,8 +2,8 @@
 
 angular.module('toollife')
 
-	.controller('AddEventCtrl', ['$log','$scope','$state', 'event'
-		function ($log, $scope, $state){  
+	.controller('AddEventCtrl', ['$log','$scope','$state', 'event',
+		function ($log, $scope, $state, event){  
 
 			$scope.event = {};
 
@@ -11,11 +11,11 @@ angular.module('toollife')
 				console.log($scope.event);
 
 				var success =  function() {					
-
+					console.log('creado con exito...');
 				};
 
 				var error = function () {
-					
+					console.log('error...');
 				};
 
 				event.create($scope.event).then(success, error);

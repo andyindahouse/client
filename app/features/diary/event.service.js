@@ -2,11 +2,18 @@
 
 angular.module('toollife')
 
-  	.factory('auth', ['config', '$log', '$http', '$window', '$rootScope', '$q', 
-  		function (config, $log, $http, $window, $rootScope, $q) {
+  	.factory('event', ['config', '$http', '$window', '$rootScope', '$q', 
+  		function (config, $http, $window, $rootScope, $q) {
 
-  			var event = {
-	  			createUser: function(user) {
+  			var event = {	  			
+
+		       	get: function (id) {		       		
+		       	},
+
+		       	getAll: function () {		       		
+		       	},
+
+		       	create: function(event) {
 
 			        	//Añadimos valores por defecto al evento
 
@@ -23,12 +30,22 @@ angular.module('toollife')
 							deferred.reject(err);
 						};
 
-						$http.post(config.API + '/event/1', user)
+						$http.post(config.API + '/event/create', event)
 						.success(success)
 						.error(error);
 
 						return deferred.promise;        
+		        },
+
+		        update: function (event) {
+		        	
+		        },
+
+		        delete: function (id) {
+		        	
 		        }
 		    };
+
+		    return event;
 
 	}]);
