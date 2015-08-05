@@ -201,18 +201,18 @@ angular.module('toollife', [
       authenticate : true
     })
 
-    /*
+    
 
-    .state('tab.edit-user',{
-      url: '/edit-user',
+    .state('tab.edit-profile',{
+      url: '/edit-profile',
       views: {
         'tab-profile': {
-          templateUrl: 'profile/edit-user.html',
-          controller: 'ProfileCtrl'          
+          templateUrl: 'features/profile/edit-profile/edit-profile.html',
+          controller: 'EditProfileCtrl'
         }
       },
-      authenticate : true   
-    })*/
+      authenticate : true
+    })
 
     //////////////////////////////////////////////////////// Common zone
 

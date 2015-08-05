@@ -1,0 +1,116 @@
+<ion-view title="Editando Perfil..." hide-back-button="true">	
+	
+	<ion-nav-buttons 
+		side="left"> 
+        <button 
+        	class="button button-assertive button-clear no-animation"
+            ng-click="navigateTo('tab.profile')"> 
+            Cancelar 
+        </button>
+  	</ion-nav-buttons>
+
+	<ion-nav-buttons 
+		side="right"> 
+        <button 
+        	class="button button-balanced button-clear no-animation"
+            ng-click="edit()"> 
+            Aceptar 
+        </button>
+  	</ion-nav-buttons>
+
+	<ion-content class="has-header">
+		<form name="userForm" ng-submit="createUser(userForm)" novalidate>
+
+	    	<div class="list">
+
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Nombre de usuario</span>
+			    <input type="text" 
+			    	   name="username" 
+			    	   ng-model="user.username" 
+			    	   placeholder="Elige tu nombre de usuario"
+			    	   required
+			    	   on-focus
+			    	   autofocus
+			    	   ng-maxlength="15"
+			    	   ng-pattern="/^[a-zA-Z0-9]*$/"
+			    	   can-update="user.username"
+			    	   mongoose-error>	    	   
+
+			    <p ng-show="userForm.username.$error.required && !userForm.username.$pristine" 
+			  	 class="">El nombre de usuario no puede estar vacio.</p>
+			  	<p ng-show="userForm.username.$error.maxlength && !userForm.username.$pristine" 
+			  	 class="">El nombre de usuario es demasiado largo.</p>
+			  	<p ng-show="userForm.username.$error.unique && !userForm.username.$pristine"
+			  	 class="">El nombre de usuario ya está cogido.</p>
+			  	 <p ng-show="userForm.username.$error.pattern && !userForm.username.$pristine"
+			  	 class="">Formato invalido. Sólo números y letras.</p>
+			  	 <p ng-show="userForm.username.$error.mongoose">
+	                {{ errors.username }}
+	            </p>
+			  </label>			  
+
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Correo electronico</span>
+			    <input type="email" 
+			    	   name="email" 
+			    	   ng-model="user.email" 
+			    	   placeholder="example@domain.com"
+			    	   ng-pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+			    	   required
+			    	   can-update="user.email"
+			    	   mongoose-error>
+			   	<p ng-show="userForm.email.$error.required && !userForm.email.$pristine" 
+			  	 class="">El correo eléctronico no puede estar vacio.</p>
+			  	<p ng-show="userForm.email.$error.pattern && !userForm.email.$pristine" 
+			  	 class="">El correo eléctronico no es válido.</p>
+			  	<p ng-show="userForm.email.$error.unique && !userForm.email.$pristine"
+			  	 class="">Este correo eléctronico ya está registrado.</p>
+			  	<p ng-show="userForm.email.$error.mongoose">
+	               {{ errors.email }}
+	            </p>
+			  </label>
+
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Nueva contraseña</span>
+			    <input type="password" 
+			    	   name="password" 
+			    	   ng-model="user.password" 
+			    	   placeholder="*********"
+			    	   required
+			    	   ng-minlength="6"
+			    	   ng-maxlength="50"
+			    	   mongoose-error>
+			    <p ng-show="userForm.password.$error.required && !userForm.password.$pristine" 
+			  	 class="">La contraseña no puede estar vacia.</p>
+			  	<p ng-show="userForm.password.$error.minlength && !userForm.password.$pristine" 
+			  	 class="">La contraseña es demasiado corta.</p>
+			  	<p ng-show="userForm.password.$error.maxlength && !userForm.password.$pristine" 
+			  	 class="">La contraseña es demasiado larga.</p>
+			  	<p ng-show="userForm.password.$error.mongoose">
+	                {{ errors.password }}
+	            </p>
+			  </label>		
+
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Repite contraseña</span>
+			    <input type="password" 
+			    	   name="repassword" 	
+			    	   ng-model="user.repassword"	    	   
+			    	   placeholder="*********"
+			    	   required
+			    	   match="user.password">		    	   
+			    <p ng-show="userForm.repassword.$error.match && !userForm.password.$pristine"
+			  	 class="">Las contraseñas no coinciden.</p>
+			  </label>
+
+			    <p ng-show="errorsubmit"
+			  	 class="">Ups, estamos teniendo problemas técnicos, por favor intentalo de nuevo más tarde. Lo sentimos :( </p>
+			  
+			  <button type="submit" 
+			  		  class="button button-block button-calm" 
+			  		  ng-disabled="userForm.$invalid">Crear cuenta</button>
+			</div>
+	    </form>
+	</ion-content>
+</ion-view>

@@ -93,5 +93,38 @@ angular.module('toollife')
         }, validate);
       }
     };
-  });
+  })
 
+  .directive('canUpdate', function (config, $http) {
+    return {
+      restrict: 'A',
+      require: 'ngModel',
+      link: function (scope, element, attrs, ngModel) {
+
+        function validate(value) {
+
+          console.log(config.API + '/user/check_update?attr=' + value + '&type=' + ngModel.$name);
+
+            if(!value) {
+              ngModel.$setValidity('unique', true);
+              return;
+            }
+
+            $http.get(config.API + '/user/check_update?attr=' + value + '&type=' + ngModel.$name)
+
+            .success(function(user) {
+              if(!user.exists) {
+                ngModel.$setValidity('unique', true);
+              } else {
+                ngModel.$setValidity('unique', false);
+              }
+          });         
+
+        }
+
+        scope.$watch( function() {
+          return ngModel.$viewValue;
+        }, validate);
+      }
+    };
+  });
