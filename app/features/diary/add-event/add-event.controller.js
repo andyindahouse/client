@@ -12,6 +12,9 @@ angular.module('toollife')
 
 				var success =  function() {					
 					console.log('creado con exito...');
+
+					// http://stackoverflow.com/questions/21309366/angularjs-ui-router-state-go-only-changin-url-in-address-bar-but-not-load
+					$state.go('^');
 				};
 
 				var error = function () {

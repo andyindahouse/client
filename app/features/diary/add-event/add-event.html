@@ -48,16 +48,16 @@
 
 		  	<label class="item item-input item-stacked-label">
 			    <span class="input-label">Descripción</span>
-			    <textarea name="descrip" 
-			    		ng-model="event.descrip" 
+			    <textarea name="description" 
+			    		ng-model="event.description" 
 			    		placeholder="Describe tu evento (max. 1000 carácteres)"
 			    		ng-maxlength="1000">
 		    	</textarea>
 			    
-			  	<p ng-show="addeventForm.descrip.$error.maxlength && !addeventForm.descrip.$pristine" 
+			  	<p ng-show="addeventForm.description.$error.maxlength && !addeventForm.description.$pristine" 
 			  	 class="">El lugar es demasiado largo. (max. 100 carácteres)</p>
-			  	<p ng-show="addeventForm.descrip.$error.mongoose">
-		            {{ errors.descrip }}</p>
+			  	<p ng-show="addeventForm.description.$error.mongoose">
+		            {{ errors.description }}</p>
 
 		  	</label>
 
@@ -67,7 +67,7 @@
 				    <label class="toggle toggle-balanced">
 				       <input type="checkbox"
 				       			name="scope"
-				       			ng-model="event.scope"
+				       			ng-model="event.privacity"
 				       			ng-true-value="1"
 				       			ng-false-value="0">
 				       <div class="track">

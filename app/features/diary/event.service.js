@@ -17,6 +17,11 @@ angular.module('toollife')
 
 			        	//Añadimos valores por defecto al evento
 
+			        	event.owner = $rootScope.currentUser.username;
+			        	event.createAt = new Date();
+
+			        	// FALTA COGER IMAGEN DEL DISPOSITIVO, SOLO POSIBLE PROBARLO DESPUES DE DESPLEGAR.
+
 						var deferred = $q.defer();
 
 						var success = function(res) {
